@@ -4,7 +4,7 @@ A small Clojure application which extends the [Berkeley Aligner](https://code.go
 
 ## Installation
 
-The easiest option is to [download the jar file](FIXME) and run it from the command line (see below).
+The easiest option is to [download the jar file](https://github.com/kmccurdy/inc-align/blob/master/target/uberjar/inc-align-0.1.0-SNAPSHOT-standalone.jar) and run it from the command line (see below).
 
 Code-tweakers can also clone this repo and use the [Leningen](https://github.com/technomancy/leiningen) toolbox (e.g. `lein run`) to try out variations. Note that you may hit dependency issues - I installed the Berkeley Aligner jar in my local lib as per [these instructions](https://www.reddit.com/r/Clojure/comments/35484f/adding_java_jar_files_to_leiningen_and_then/) to get it in the classpath.
 
@@ -53,8 +53,8 @@ One currently known issue: loading parameters from a model output directory whic
 
 There are two standalone helper scripts:
 
-- [tknze](FIXME) takes a text file (ideally already sentence-aligned => one sentence per line) and tokenizes it in the style of the BA example data
-- [vis](FIXME) takes a model and two aligned data files  (e.g. `data.e` and `data.f`), and writes a new file `data.vis` with their alignments visualized as distortion matrices
+- [tknze](https://github.com/kmccurdy/inc-align/blob/master/src/inc_align/tknze.clj) takes a text file (ideally already sentence-aligned => one sentence per line) and tokenizes it in the style of the BA example data
+- [vis](https://github.com/kmccurdy/inc-align/blob/master/src/inc_align/vis.clj) takes a model and two aligned data files  (e.g. `data.e` and `data.f`), and writes a new file `data.vis` with their alignments visualized as distortion matrices
 
 See comments in the files for usage.
 
