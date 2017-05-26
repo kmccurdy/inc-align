@@ -20,6 +20,7 @@ To use inc-align, you should have:
     - `mode  JOINT JOINT` (inc-align assumes jointly trained models)
     - `saveParams true`
     - `alignTraining`
+    - `numThreads 1` (to restrict concurrency errors)
 - Data to be aligned, formatted as required by the trained model (i.e. sentence-aligned, tokenized, etc... check the Berkeley Aligner documentation)
 
 This has only been tested with the unsupervised version of the Aligner, but it probably works for the supervised version as well. Let me know if you try!
@@ -47,7 +48,7 @@ The directory `inc-align-output` will be created in the data directory, containi
 
 ## Issues
 
-One currently known issue: loading parameters from a model output directory which has been *decompressed* - e.g. expanded from a tarball - throws a `java.io.OptionalDataException`. This means inc-align can be used with models trained locally, i.e. on the same machine, but makes using models trained elsewhere difficult. Anyone with thoughts on the root of the problem and/or how to fix it: I'd be happy to hear them. 
+Attempting to load trained models sometimes throws a mysterious `java.io.OptionalDataException`. In these cases, your best bet is to retrain the model, ensuring that the parameter `numThreads` is set to `1` - it seems that multithread-trained models are more likely to run into these concurrency issues. However, sometimes that still doesn't work, and I'm not sure why. If you have thoughts about this, I'm very open to hearing them. 
 
 ## Extras
 
